@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/" },
-  { label: "Bookings", icon: CalendarDays, path: "/bookings" },
-  { label: "Spaces", icon: Building2, path: "/spaces" },
+  { label: "Classrooms", icon: CalendarDays, path: "/classrooms" },
+  { label: "Rooms", icon: Building2, path: "/spaces" },
   { label: "Calendar", icon: CalendarDays, path: "/calendar" },
   { label: "Users", icon: Users, path: "/users" },
   { label: "Services", icon: Briefcase, path: "/services" },
   { label: "Payments", icon: CreditCard, path: "/payments" },
-  { label: "Reports", icon: BarChart3, path: "/reports" },
+  { label: "Analytics", icon: BarChart3, path: "/analytics" },
   { label: "Reviews", icon: Star, path: "/reviews" },
   { label: "Settings", icon: Settings, path: "/settings" },
 ];

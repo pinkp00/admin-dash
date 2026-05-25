@@ -4,8 +4,8 @@ import { TrendingUp } from "lucide-react";
 
 const STATS = [
   {
-    label: "Total Bookings",
-    value: "1,245",
+    label: "Total Classrooms",
+    value: "42",
     change: "12.5% from last month",
     positive: true,
     gradient: "from-purple-500 to-violet-600",
@@ -13,8 +13,8 @@ const STATS = [
     icon: CalendarDays,
   },
   {
-    label: "Total Revenue",
-    value: "$24,680",
+    label: "Current Sessions",
+    value: "38",
     change: "18.4% from last month",
     positive: true,
     gradient: "from-pink-500 to-rose-500",
@@ -22,8 +22,8 @@ const STATS = [
     icon: DollarSign,
   },
   {
-    label: "Active Users",
-    value: "856",
+    label: "Active Departments",
+    value: "8",
     change: "9.7% from last month",
     positive: true,
     gradient: "from-blue-500 to-cyan-500",
@@ -31,8 +31,8 @@ const STATS = [
     icon: Users,
   },
   {
-    label: "Available Spaces",
-    value: "42",
+    label: "Available Rooms",
+    value: "18",
     change: "5.2% from last month",
     positive: true,
     gradient: "from-violet-500 to-purple-700",

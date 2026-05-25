@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import { Search, Filter, Plus, Download } from "lucide-react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import RecentBookings from "@/components/features/RecentBookings";
-import { RECENT_BOOKINGS } from "@/constants/data";
+import { CLASSROOMS } from "@/constants/data";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
-const STATUSES = ["All", "Confirmed", "Pending", "Cancelled", "Completed"];
+const STATUSES = ["All", "Available", "Occupied", "Maintenance"];
 
 const Bookings: React.FC = () => {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("All");
 
-  const filtered = RECENT_BOOKINGS.filter((b) => {
+  const filtered = CLASSROOMS.filter((b) => {
     const matchesSearch =
       b.id.toLowerCase().includes(search.toLowerCase()) ||
-      b.user.toLowerCase().includes(search.toLowerCase()) ||
-      b.space.toLowerCase().includes(search.toLowerCase());
+      b.department.toLowerCase().includes(search.toLowerCase()) ||
+      b.room.toLowerCase().includes(search.toLowerCase()) ||
+      b.block.toLowerCase().includes(search.toLowerCase());
     const matchesStatus = status === "All" || b.status === status;
     return matchesSearch && matchesStatus;
   });
@@ -25,23 +26,23 @@ const Bookings: React.FC = () => {
     <DashboardLayout>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-2xl font-bold">Bookings</h1>
-          <p className="text-muted-foreground text-sm mt-0.5">Manage all space bookings</p>
+          <h1 className="text-2xl font-bold">Classrooms</h1>
+          <p className="text-muted-foreground text-sm mt-0.5">Find classrooms across the institution and review availability.</p>
         </div>
         <div className="flex gap-2">
           <button
-            onClick={() => toast.success("Report exported successfully!")}
+            onClick={() => toast.success("Classroom report exported successfully!")}
             className="flex items-center gap-2 px-3 py-2 border border-border rounded-xl text-sm hover:bg-muted transition-colors"
           >
             <Download className="w-4 h-4" />
             Export
           </button>
           <button
-            onClick={() => toast.success("New booking form opened")}
+            onClick={() => toast.success("New classroom form opened")}
             className="flex items-center gap-2 px-4 py-2 gradient-purple-pink text-white text-sm font-semibold rounded-xl shadow-brand-sm hover:opacity-90 transition-opacity"
           >
             <Plus className="w-4 h-4" />
-            New Booking
+            New Classroom
           </button>
         </div>
       </div>
@@ -53,7 +54,7 @@ const Bookings: React.FC = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Search by ID, user or space..."
+              placeholder="Search by ID, department, room or block..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-9 pr-4 py-2 text-sm bg-muted/50 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"

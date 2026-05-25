@@ -18,7 +18,11 @@ const Spaces: React.FC = () => {
   const filters = ["All", "Available", "Occupied", "Maintenance"];
 
   const filtered = SPACES.filter((s) => {
-    const matchSearch = s.name.toLowerCase().includes(search.toLowerCase()) || s.type.toLowerCase().includes(search.toLowerCase());
+    const matchSearch =
+      s.name.toLowerCase().includes(search.toLowerCase()) ||
+      s.department.toLowerCase().includes(search.toLowerCase()) ||
+      s.room.toLowerCase().includes(search.toLowerCase()) ||
+      s.block.toLowerCase().includes(search.toLowerCase());
     const matchFilter = filter === "All" || s.status === filter;
     return matchSearch && matchFilter;
   });
@@ -27,8 +31,8 @@ const Spaces: React.FC = () => {
     <DashboardLayout>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-2xl font-bold">Spaces</h1>
-          <p className="text-muted-foreground text-sm mt-0.5">Manage all bookable spaces</p>
+          <h1 className="text-2xl font-bold">Classroom Inventory</h1>
+          <p className="text-muted-foreground text-sm mt-0.5">Review classroom status, department assignments, and location details.</p>
         </div>
         <button
           onClick={() => toast.success("Add space form opened")}
@@ -73,22 +77,23 @@ const Spaces: React.FC = () => {
             <div className="flex items-start justify-between mb-3">
               <div>
                 <h3 className="font-semibold">{space.name}</h3>
-                <p className="text-xs text-muted-foreground mt-0.5">{space.type}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Department {space.department}</p>
               </div>
               <span className={cn("px-2.5 py-1 rounded-full text-xs font-semibold", STATUS_STYLES[space.status])}>
                 {space.status}
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 mb-4">
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <div className="space-y-2 mb-4 text-xs text-muted-foreground">
+              <p className="flex items-center gap-1.5">
                 <Users className="w-3.5 h-3.5 text-primary" />
-                {space.capacity} people
-              </div>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                Capacity: {space.capacity}
+              </p>
+              <p className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-pink-500" />
-                {space.floor}
-              </div>
+                {space.floor} · Block {space.block}
+              </p>
+              <p className="text-xs text-muted-foreground">Room {space.room}</p>
             </div>
 
             <div className="flex flex-wrap gap-1 mb-4">
@@ -100,7 +105,7 @@ const Spaces: React.FC = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="text-lg font-bold text-primary">${space.pricePerHour}<span className="text-xs text-muted-foreground font-normal">/hr</span></p>
+              <p className="text-lg font-bold text-primary">Capacity {space.capacity}</p>
               <button
                 onClick={() => toast.success(`${space.name} details opened`)}
                 className="px-3 py-1.5 text-xs font-semibold gradient-purple-pink text-white rounded-lg shadow-brand-sm hover:opacity-90 transition-opacity"

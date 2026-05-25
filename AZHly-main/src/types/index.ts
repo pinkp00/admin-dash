@@ -8,6 +8,17 @@ export interface Booking {
   avatar?: string;
 }
 
+export interface Classroom {
+  id: string;
+  department: string;
+  room: string;
+  floor: string;
+  block: string;
+  capacity: number;
+  status: "Available" | "Occupied" | "Maintenance";
+  lastUsed: string;
+}
+
 export interface ScheduleItem {
   startTime: string;
   endTime: string;
@@ -31,11 +42,13 @@ export interface User {
 export interface Space {
   id: string;
   name: string;
-  type: string;
+  department: string;
+  room: string;
+  floor: string;
+  block: string;
   capacity: number;
   status: "Available" | "Occupied" | "Maintenance";
-  pricePerHour: number;
-  floor: string;
+  pricePerHour?: number;
   amenities: string[];
 }
 

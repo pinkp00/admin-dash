@@ -12,7 +12,7 @@ const SpacesDonutChart: React.FC = () => {
   return (
     <div className="bg-card border border-border rounded-2xl p-5 shadow-card">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-base font-semibold">Bookings by Space</h3>
+        <h3 className="text-base font-semibold">Department Usage</h3>
         <div className="relative">
           <button
             onClick={() => setShowDropdown(!showDropdown)}

@@ -29,6 +29,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/classrooms" element={<Bookings />} />
               <Route path="/bookings" element={<Bookings />} />
               <Route path="/spaces" element={<Spaces />} />
               <Route path="/calendar" element={<CalendarPage />} />
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/payments" element={<Payments />} />
               <Route path="/reports" element={<Reports />} />
+              <Route path="/analytics" element={<Reports />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="*" element={<NotFound />} />

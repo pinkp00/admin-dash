@@ -70,8 +70,8 @@ const BookingsChart: React.FC = () => {
             wrapperStyle={{ fontSize: "12px", paddingTop: "12px" }}
             formatter={(value) => <span style={{ color: "hsl(var(--foreground))" }}>{value}</span>}
           />
-          <Area type="monotone" dataKey="bookings" name="Bookings" stroke="#EC4899" strokeWidth={2.5} fill="url(#gradBookings)" dot={false} activeDot={{ r: 5, fill: "#EC4899" }} />
-          <Area type="monotone" dataKey="revenue" name="Revenue" stroke="#60A5FA" strokeWidth={2.5} fill="url(#gradRevenue)" dot={false} activeDot={{ r: 5, fill: "#60A5FA" }} />
+          <Area type="monotone" dataKey="bookings" name="Sessions" stroke="#EC4899" strokeWidth={2.5} fill="url(#gradBookings)" dot={false} activeDot={{ r: 5, fill: "#EC4899" }} />
+          <Area type="monotone" dataKey="revenue" name="Attendance" stroke="#60A5FA" strokeWidth={2.5} fill="url(#gradRevenue)" dot={false} activeDot={{ r: 5, fill: "#60A5FA" }} />
         </AreaChart>
       </ResponsiveContainer>
     </div>

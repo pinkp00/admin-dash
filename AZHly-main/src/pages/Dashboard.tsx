@@ -8,7 +8,7 @@ import SpacesDonutChart from "@/components/features/SpacesDonutChart";
 import RecentBookings from "@/components/features/RecentBookings";
 import UpcomingSchedule from "@/components/features/UpcomingSchedule";
 import RecentActivity from "@/components/features/RecentActivity";
-import { RECENT_BOOKINGS, UPCOMING_SCHEDULE } from "@/constants/data";
+import { CLASSROOMS, UPCOMING_SCHEDULE } from "@/constants/data";
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -45,8 +45,8 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mt-5">
         <div className="xl:col-span-2">
           <RecentBookings
-            bookings={RECENT_BOOKINGS.slice(0, 5)}
-            onViewAll={() => navigate("/bookings")}
+            bookings={CLASSROOMS.slice(0, 5)}
+            onViewAll={() => navigate("/classrooms")}
           />
         </div>
         <div className="xl:col-span-1">

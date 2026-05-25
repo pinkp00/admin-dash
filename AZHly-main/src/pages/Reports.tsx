@@ -32,10 +32,10 @@ const TOP_SPACES = [
 ];
 
 const SUMMARY = [
-  { label: "Total Revenue", value: "$24,680", icon: DollarSign, gradient: "gradient-purple-pink", change: "+18.4%" },
-  { label: "Total Bookings", value: "1,245", icon: CalendarDays, gradient: "gradient-blue-purple", change: "+12.5%" },
-  { label: "Active Users", value: "856", icon: Users, gradient: "gradient-teal-blue", change: "+9.7%" },
-  { label: "Available Spaces", value: "42", icon: Building2, gradient: "gradient-pink-orange", change: "+5.2%" },
+  { label: "Total Sessions", value: "1,245", icon: CalendarDays, gradient: "gradient-blue-purple", change: "+12.5%" },
+  { label: "Average Attendance", value: "24.8", icon: DollarSign, gradient: "gradient-purple-pink", change: "+18.4%" },
+  { label: "Active Departments", value: "8", icon: Users, gradient: "gradient-teal-blue", change: "+9.7%" },
+  { label: "Available Classrooms", value: "18", icon: Building2, gradient: "gradient-pink-orange", change: "+5.2%" },
 ];
 
 const Reports: React.FC = () => {
@@ -45,8 +45,8 @@ const Reports: React.FC = () => {
     <DashboardLayout>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-2xl font-bold">Reports</h1>
-          <p className="text-muted-foreground text-sm mt-0.5">Platform analytics and performance overview</p>
+          <h1 className="text-2xl font-bold">Analytics</h1>
+          <p className="text-muted-foreground text-sm mt-0.5">Classroom utilization, schedule trends, and department insights.</p>
         </div>
         <button
           onClick={() => toast.success("Report exported!")}

@@ -1,14 +1,14 @@
-import type { Booking, ScheduleItem, User, Space, Notification, ChartDataPoint, DonutDataPoint } from "@/types";
+import type { Booking, Classroom, ScheduleItem, User, Space, Notification, ChartDataPoint, DonutDataPoint } from "@/types";
 
-export const RECENT_BOOKINGS: Booking[] = [
-  { id: "#BKG1025", space: "Study Room A", user: "Ali Khan", date: "May 22, 2025", time: "10:00 AM", status: "Confirmed" },
-  { id: "#BKG1024", space: "Conference Room", user: "Sara Malik", date: "May 22, 2025", time: "01:00 PM", status: "Pending" },
-  { id: "#BKG1023", space: "Private Office", user: "Zain Abbas", date: "May 22, 2025", time: "03:00 PM", status: "Confirmed" },
-  { id: "#BKG1022", space: "Event Hall", user: "Hira Sheikh", date: "May 22, 2025", time: "06:00 PM", status: "Cancelled" },
-  { id: "#BKG1021", space: "Study Room B", user: "Usman Raza", date: "May 21, 2025", time: "11:00 AM", status: "Confirmed" },
-  { id: "#BKG1020", space: "Meeting Room 1", user: "Ayesha Noor", date: "May 21, 2025", time: "02:00 PM", status: "Completed" },
-  { id: "#BKG1019", space: "Conference Room", user: "Bilal Ahmed", date: "May 20, 2025", time: "09:00 AM", status: "Confirmed" },
-  { id: "#BKG1018", space: "Private Office", user: "Fatima Qureshi", date: "May 20, 2025", time: "04:00 PM", status: "Pending" },
+export const CLASSROOMS: Classroom[] = [
+  { id: "CLS-601", department: "CS", room: "B-108", floor: "1st", block: "Arfa Kareem", capacity: 42, status: "Available", lastUsed: "Today 08:00 AM" },
+  { id: "CLS-602", department: "EE", room: "C-302", floor: "3rd", block: "Iqbal Block", capacity: 30, status: "Occupied", lastUsed: "Today 10:30 AM" },
+  { id: "CLS-603", department: "Math", room: "D-210", floor: "2nd", block: "Noble Block", capacity: 35, status: "Maintenance", lastUsed: "Yesterday 04:00 PM" },
+  { id: "CLS-604", department: "Physics", room: "A-501", floor: "5th", block: "Arfa Kareem", capacity: 45, status: "Available", lastUsed: "Today 09:15 AM" },
+  { id: "CLS-605", department: "Biology", room: "F-110", floor: "1st", block: "Iqbal Block", capacity: 28, status: "Occupied", lastUsed: "Today 11:00 AM" },
+  { id: "CLS-606", department: "CS", room: "B-112", floor: "1st", block: "Arfa Kareem", capacity: 40, status: "Available", lastUsed: "Today 07:30 AM" },
+  { id: "CLS-607", department: "EE", room: "C-221", floor: "2nd", block: "Noble Block", capacity: 32, status: "Occupied", lastUsed: "Today 09:45 AM" },
+  { id: "CLS-608", department: "Math", room: "D-108", floor: "1st", block: "Arfa Kareem", capacity: 36, status: "Available", lastUsed: "Today 08:30 AM" },
 ];
 
 export const UPCOMING_SCHEDULE: ScheduleItem[] = [
@@ -30,12 +30,12 @@ export const USERS: User[] = [
 ];
 
 export const SPACES: Space[] = [
-  { id: "SPC001", name: "Study Room A", type: "Study Room", capacity: 8, status: "Available", pricePerHour: 15, floor: "Floor 1", amenities: ["WiFi", "Whiteboard", "AC"] },
-  { id: "SPC002", name: "Conference Room", type: "Conference", capacity: 20, status: "Occupied", pricePerHour: 45, floor: "Floor 2", amenities: ["WiFi", "Projector", "Video Call", "AC"] },
-  { id: "SPC003", name: "Private Office", type: "Private Office", capacity: 4, status: "Available", pricePerHour: 30, floor: "Floor 2", amenities: ["WiFi", "Desk", "AC", "Phone"] },
-  { id: "SPC004", name: "Event Hall", type: "Event Space", capacity: 100, status: "Maintenance", pricePerHour: 150, floor: "Ground Floor", amenities: ["WiFi", "Stage", "Sound System", "Catering"] },
-  { id: "SPC005", name: "Study Room B", type: "Study Room", capacity: 6, status: "Available", pricePerHour: 12, floor: "Floor 1", amenities: ["WiFi", "Whiteboard"] },
-  { id: "SPC006", name: "Meeting Room 1", type: "Meeting Room", capacity: 10, status: "Occupied", pricePerHour: 25, floor: "Floor 3", amenities: ["WiFi", "TV Screen", "AC"] },
+  { id: "CLS-108", name: "B-108", department: "CS", room: "B-108", floor: "1st", block: "Arfa Kareem", capacity: 42, status: "Available", pricePerHour: 0, amenities: ["WiFi", "Whiteboard", "AC"] },
+  { id: "CLS-302", name: "C-302", department: "EE", room: "C-302", floor: "3rd", block: "Iqbal Block", capacity: 30, status: "Occupied", pricePerHour: 0, amenities: ["WiFi", "Projector", "AV System"] },
+  { id: "CLS-210", name: "D-210", department: "Math", room: "D-210", floor: "2nd", block: "Noble Block", capacity: 35, status: "Maintenance", pricePerHour: 0, amenities: ["WiFi", "Whiteboard"] },
+  { id: "CLS-501", name: "A-501", department: "Physics", room: "A-501", floor: "5th", block: "Arfa Kareem", capacity: 45, status: "Available", pricePerHour: 0, amenities: ["WiFi", "Lab Equipment"] },
+  { id: "CLS-110", name: "F-110", department: "Biology", room: "F-110", floor: "1st", block: "Iqbal Block", capacity: 28, status: "Occupied", pricePerHour: 0, amenities: ["WiFi", "Laboratory Sink"] },
+  { id: "CLS-112", name: "B-112", department: "CS", room: "B-112", floor: "1st", block: "Arfa Kareem", capacity: 40, status: "Available", pricePerHour: 0, amenities: ["WiFi", "AC"] },
 ];
 
 export const NOTIFICATIONS: Notification[] = [
@@ -48,24 +48,24 @@ export const NOTIFICATIONS: Notification[] = [
 ];
 
 export const CHART_DATA: ChartDataPoint[] = [
-  { date: "May 1", bookings: 120, revenue: 2100 },
-  { date: "May 3", bookings: 180, revenue: 3200 },
-  { date: "May 6", bookings: 240, revenue: 4100 },
-  { date: "May 8", bookings: 310, revenue: 5300 },
-  { date: "May 11", bookings: 580, revenue: 8900 },
-  { date: "May 13", bookings: 720, revenue: 11200 },
-  { date: "May 16", bookings: 960, revenue: 15800 },
-  { date: "May 18", bookings: 820, revenue: 13200 },
-  { date: "May 21", bookings: 680, revenue: 10900 },
-  { date: "May 23", bookings: 540, revenue: 8700 },
+  { date: "May 1", bookings: 14, revenue: 128 },
+  { date: "May 3", bookings: 18, revenue: 156 },
+  { date: "May 6", bookings: 20, revenue: 190 },
+  { date: "May 8", bookings: 22, revenue: 205 },
+  { date: "May 11", bookings: 26, revenue: 240 },
+  { date: "May 13", bookings: 30, revenue: 275 },
+  { date: "May 16", bookings: 32, revenue: 310 },
+  { date: "May 18", bookings: 28, revenue: 290 },
+  { date: "May 21", bookings: 24, revenue: 260 },
+  { date: "May 23", bookings: 20, revenue: 228 },
 ];
 
 export const DONUT_DATA: DonutDataPoint[] = [
-  { name: "Study Room A", value: 35, color: "#8B5CF6" },
-  { name: "Conference Room", value: 25, color: "#60A5FA" },
-  { name: "Private Office", value: 20, color: "#EC4899" },
-  { name: "Event Hall", value: 10, color: "#34D399" },
-  { name: "Others", value: 10, color: "#A78BFA" },
+  { name: "CS", value: 35, color: "#8B5CF6" },
+  { name: "EE", value: 25, color: "#60A5FA" },
+  { name: "Math", value: 20, color: "#EC4899" },
+  { name: "Physics", value: 10, color: "#34D399" },
+  { name: "Biology", value: 10, color: "#A78BFA" },
 ];
 
 export const ACTIVITY_LOG = [
