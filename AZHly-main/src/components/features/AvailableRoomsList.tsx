@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ROOMS } from '@/constants/data';
+import { ROOMS, DEPARTMENTS } from '@/constants/data';
 import type { Room } from '@/types';
 
 interface AvailableRoomsListProps {
@@ -24,9 +24,13 @@ const StatusBadge: React.FC<{ status: Room['status'] }> = ({ status }) => {
 };
 
 const AvailableRoomsList: React.FC<AvailableRoomsListProps> = ({ filterDept }) => {
+  const departmentCode = filterDept
+    ? DEPARTMENTS.find(d => d.shortName === filterDept || d.name === filterDept)?.shortName
+    : undefined;
+
   const rooms = ROOMS
     .filter(r => r.status === 'available')
-    .filter(r => !filterDept || filterDept === 'Computer Science' ? true : r.department === filterDept?.slice(0, 2).toUpperCase())
+    .filter(r => !departmentCode || departmentCode === 'all' ? true : r.department === departmentCode)
     .slice(0, 3);
 
   return (

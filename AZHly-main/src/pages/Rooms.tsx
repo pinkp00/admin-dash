@@ -35,6 +35,10 @@ const Rooms: React.FC = () => {
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
 
+  const totalRooms = ROOMS.length;
+  const availableRooms = ROOMS.filter(room => room.status === 'available').length;
+  const occupiedRooms = ROOMS.filter(room => room.status === 'occupied').length;
+
   const filtered = ROOMS.filter(r => {
     const matchSearch = r.number.toLowerCase().includes(search.toLowerCase()) ||
       r.block.toLowerCase().includes(search.toLowerCase());
@@ -62,9 +66,9 @@ const Rooms: React.FC = () => {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { label: 'Total', value: 120, color: 'text-foreground', bg: 'bg-muted' },
-          { label: 'Available', value: 35, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-          { label: 'Occupied', value: 85, color: 'text-red-500', bg: 'bg-red-50 dark:bg-red-900/20' },
+          { label: 'Total', value: totalRooms, color: 'text-foreground', bg: 'bg-muted' },
+          { label: 'Available', value: availableRooms, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
+          { label: 'Occupied', value: occupiedRooms, color: 'text-red-500', bg: 'bg-red-50 dark:bg-red-900/20' },
         ].map(s => (
           <div key={s.label} className={`${s.bg} rounded-2xl p-4 text-center border border-border`}>
             <div className={`text-2xl font-bold ${s.color}`}>{s.value}</div>

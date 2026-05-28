@@ -30,7 +30,11 @@ const RoomFinder: React.FC = () => {
   };
 
   const results = searched
-    ? ROOMS.filter(r => r.status === 'available' && (typeFilter === 'all' || r.type === typeFilter))
+    ? ROOMS.filter(r =>
+        r.status === 'available' &&
+        (typeFilter === 'all' || r.type === typeFilter) &&
+        (dept === 'all' || r.department === dept)
+      )
     : [];
 
   return (

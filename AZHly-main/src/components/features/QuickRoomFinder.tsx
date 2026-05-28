@@ -10,7 +10,7 @@ interface QuickRoomFinderProps {
 const QuickRoomFinder: React.FC<QuickRoomFinderProps> = ({ onResults }) => {
   const [day, setDay] = useState('Monday');
   const [time, setTime] = useState('10:00 AM - 11:00 AM');
-  const [dept, setDept] = useState('Computer Science');
+  const [dept, setDept] = useState('CS');
 
   const handleSearch = () => {
     onResults(day, time, dept);
@@ -62,7 +62,9 @@ const QuickRoomFinder: React.FC<QuickRoomFinderProps> = ({ onResults }) => {
               onChange={e => setDept(e.target.value)}
               className="w-full pl-9 pr-8 py-2.5 bg-background border border-border rounded-xl text-sm appearance-none focus:outline-none focus:border-primary/50 transition-colors cursor-pointer"
             >
-              {DEPARTMENTS.map(d => <option key={d.id}>{d.name}</option>)}
+              {DEPARTMENTS.map(d => (
+                <option key={d.id} value={d.shortName}>{d.name}</option>
+              ))}
             </select>
             <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
           </div>

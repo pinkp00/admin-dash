@@ -7,13 +7,18 @@ import RecentActivities from '@/components/features/RecentActivities';
 import RoomStatusDonut from '@/components/features/RoomStatusDonut';
 import WeeklyUsageChart from '@/components/features/WeeklyUsageChart';
 import DepartmentUsageChart from '@/components/features/DepartmentUsageChart';
-import { ROOM_TREND, AVAILABLE_TREND, OCCUPIED_TREND, DEPT_TREND } from '@/constants/data';
+import { ROOMS, DEPARTMENTS, ROOM_TREND, AVAILABLE_TREND, OCCUPIED_TREND, DEPT_TREND } from '@/constants/data';
 import { toast } from 'sonner';
 
 const Dashboard: React.FC = () => {
   const [filterDay, setFilterDay] = useState('Monday');
   const [filterTime, setFilterTime] = useState('10:00 AM - 11:00 AM');
-  const [filterDept, setFilterDept] = useState('Computer Science');
+  const [filterDept, setFilterDept] = useState('CS');
+
+  const totalRooms = ROOMS.length;
+  const availableRooms = ROOMS.filter(room => room.status === 'available').length;
+  const occupiedRooms = ROOMS.filter(room => room.status === 'occupied').length;
+  const departmentsCount = DEPARTMENTS.length;
 
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
@@ -41,7 +46,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <StatCard
           title="Total Rooms"
-          value={120}
+          value={totalRooms}
           subtitle="All rooms in system"
           trend={ROOM_TREND}
           color="purple"
@@ -49,7 +54,7 @@ const Dashboard: React.FC = () => {
         />
         <StatCard
           title="Available Rooms"
-          value={35}
+          value={availableRooms}
           subtitle="Currently available"
           trend={AVAILABLE_TREND}
           color="green"
@@ -57,7 +62,7 @@ const Dashboard: React.FC = () => {
         />
         <StatCard
           title="Occupied Rooms"
-          value={85}
+          value={occupiedRooms}
           subtitle="Currently occupied"
           trend={OCCUPIED_TREND}
           color="pink"
@@ -65,7 +70,7 @@ const Dashboard: React.FC = () => {
         />
         <StatCard
           title="Departments"
-          value={6}
+          value={departmentsCount}
           subtitle="Total departments"
           trend={DEPT_TREND}
           color="blue"
