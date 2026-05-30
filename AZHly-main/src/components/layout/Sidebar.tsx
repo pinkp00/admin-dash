@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, isOpen, onClose }) => {
       <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <img
-            src="https://cdn-ai.onspace.ai/onspace/project/uploads/JdkgFZyfJBmvk2Kzq8CSTf/pasted-image-1779987795382-0.png"
+            src="dark-logo.png"
             alt="AZHly Logo"
             className="h-10 w-auto object-contain"
           />
