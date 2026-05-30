@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, isOpen, onClose }) => {
       <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <img
-            src="dark-logo.png"
+            src=""
             alt="AZHly Logo"
             className="h-10 w-auto object-contain"
           />
